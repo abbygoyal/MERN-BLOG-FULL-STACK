@@ -15,26 +15,14 @@ dotenv.config();
 const PORT = process.env.PORT;
 const app = express();
 
-// Get the frontend URL from environment variables (best practice)
-const frontendURL =
-  process.env.FRONTEND_URL || "https://mern-blog-full-stack-y8to.vercel.app"; // Default for local development
-
-// Allow requests from your frontend and localhost during development
-const allowedOrigins = [frontendURL, "http://localhost:5173"];
-
+app.use(cookieParser());
+app.use(express.json());
 app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // Check if origin is allowed or if it's a local request (no origin)
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"), false);
-      }
-    },
-    credentials: true, // VERY IMPORTANT: Enable credentials
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
   })
 );
 
