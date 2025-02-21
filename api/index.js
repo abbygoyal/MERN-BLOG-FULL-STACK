@@ -34,7 +34,7 @@ app.use("/api/comment", CommentRoute);
 app.use("/api/blog-like", BlogLikeRoute);
 
 mongoose
-  .connect(process.env.MONGODB_CONN, { dbName: "yt-mern-blog" })
+  .connect(process.env.MONGODB_CONN, { dbName: "MERN-BLOG-DB" })
   .then(() => console.log("Database connected."))
   .catch((err) => console.log("Database connection failed.", err));
 
