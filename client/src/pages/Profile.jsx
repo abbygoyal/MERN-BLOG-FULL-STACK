@@ -19,7 +19,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Textarea } from "@/components/ui/textarea";
 import { useFetch } from "@/hooks/useFetch";
-import Loading from "@/components/loading";
+import Loading from "@/components/Loading";
 import { useEffect } from "react";
 import { IoCameraOutline } from "react-icons/io5";
 import Dropzone from "react-dropzone";
