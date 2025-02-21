@@ -12,19 +12,37 @@ import BlogLikeRoute from "./routes/Bloglike.route.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
+const FRONTEND_URL = process.env.FRONTEND_URL; // Ensure this is set in Vercel
 const app = express();
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(cookieParser());
-app.use(express.json());
+
+// ✅ CORS FIX: Properly Configure CORS Middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
+    origin: FRONTEND_URL, // Only allow requests from your frontend
+    credentials: true, // Allow cookies, authentication, etc.
   })
 );
+
+// ✅ CORS FIX: Explicitly Set Headers for All Requests
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", FRONTEND_URL);
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  next();
+});
 
 //Route setup
 app.use("/api/auth", AuthRoute);
