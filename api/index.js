@@ -15,9 +15,11 @@ dotenv.config();
 const PORT = process.env.PORT;
 const app = express();
 
+const frontendURL = "https://mern-blog-full-stack-y8to.vercel.app"; // REPLACE with YOUR frontend URL
+
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+app.use(cors({ origin: frontendURL, credentials: true }));
 
 //Route setup
 app.use("/api/auth", AuthRoute);
