@@ -20,7 +20,7 @@ import {
   RouteUser,
 } from "./helpers/RouteName";
 import Index from "./pages/index";
-import SignIn from "./pages/Signin";
+import SignIn from "./pages/SignIn";
 import SingnUp from "./pages/SingnUp";
 import Profile from "./pages/Profile";
 import AddCategory from "./pages/Category/AddCategory";
@@ -33,7 +33,7 @@ import SingleBlogDetails from "./pages/SingleBlogDetails";
 import BlogByCategory from "./pages/Blog/BlogByCategory";
 import SearchResult from "./pages/SearchResult";
 import Comments from "./pages/Comments";
-import User from "./pages/Users";
+import User from "./pages/User";
 import AuthRouteProtechtion from "./components/AuthRouteProtechtion";
 import OnlyAdminAllowed from "./components/OnlyAdminAllowed";
 
