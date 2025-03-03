@@ -1,5 +1,6 @@
 # MERN-BLOG Full Stack Application: A Comprehensive MERN Stack Blogging Platform
 
+
 This document provides an in-depth explanation of the functionality and features of the YT-MERN-BLOG-main new project, a robust blogging platform built using the MERN stack (MongoDB, Express.js, React, Node.js). This application allows users to create, manage, and interact with blog posts, categories, and comments. It also incorporates user authentication and authorization features.
 
 
